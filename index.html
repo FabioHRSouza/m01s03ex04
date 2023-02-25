@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    h1{
+        font-size: 85px;
+        margin-left: 55px;
+        color: red;
+    }
+    h2{
+        font-size: 45px;
+        margin-left: 55px;
+        color: blue;
+    }
+
+    p{
+        font-size: 35px ;
+        margin-left: 55px;
+    }
+    #classPed{
+        margin: 55px;
+        font-size: 25px;     
+    }
+    #dataPed{
+        margin-top: 15px;
+        margin-left: 55px;
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="principal">
+            <h1> Modulo01 - Semana03 - Exercício 04 </h1>
+            <h2>Classificação dos Pedidos de Vendas.</h2>
+            <p>Insira os dados do Pedido abaixo, e verifique a sua Classificação. </p>
+            <input type="date" id="dataPed" placeholder="Data do Pedido" >
+            <input type="number" min="1" max="5" id="numPed" placeholder="Numero do Pedido" >
+            <input type="text" id="valorPed" placeholder="Valor R$" >
+            <input type="text" id="vendedor" placeholder="Vendedor" >
+            <div class="button">
+                <button onclick="classificar()" id="classPed">Incluir</button>
+            </div>
+            <p id="frase"></p>
+        </section>
+    </main>
+    <script>
+        const submeter = document.getElementById("classPed").value;
+        
+        function classificar(){
+            let numero = document.getElementById("numPed").value;
+            let valor = document.getElementById("valorPed").value;
+            let vendedor = document.getElementById("vendedor").value;
+            let classificado;
+            if (valor > 0 && valor <= 10000){
+                classificado = "Pedido classificado como Bronze!";
+            }else if (valor > 10000 && valor <= 100000){
+                classificado = "Pedido classificado como Prata!";
+            }else if (valor > 100000 && valor < 500000){
+                classificado = "Pedido classificado como Ouro!";
+            }else if (valor > 500000){
+                classificado = "Pedido classificado como Platinum!";
+            }else {
+                classificado = "Valor Incorreto";
+            };
+            document.getElementById("frase").innerHTML =  classificado;
+        };
+    </script>
+</body>
+</html>
